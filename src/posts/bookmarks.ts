@@ -14,7 +14,7 @@ type Post = {
   setPostField: (pid: string, field: string, bookmarks: string[]) => Promise<unknown>;
 }
 
-module.exports = function (Posts: Post) {
+export default function (Posts: Post) {
     async function toggleBookmark(type: string, pid: string, uid: string) {
         if (parseInt(uid, 10) <= 0) {
             throw new Error('[[error:not-logged-in]]');
@@ -82,4 +82,4 @@ module.exports = function (Posts: Post) {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
         return await db.isSetMember(`pid:${pid}:users_bookmarked`, uid) as boolean;
     };
-};
+}

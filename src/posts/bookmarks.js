@@ -11,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const db = require("../database");
 const plugins = require("../plugins");
-module.exports = function (Posts) {
+function default_1(Posts) {
     function toggleBookmark(type, pid, uid) {
         return __awaiter(this, void 0, void 0, function* () {
             if (parseInt(uid, 10) <= 0) {
@@ -77,4 +77,5 @@ module.exports = function (Posts) {
             return yield db.isSetMember(`pid:${pid}:users_bookmarked`, uid);
         });
     };
-};
+}
+exports.default = default_1;
